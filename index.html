@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ja" style="min-height: 100vh;">
+<head>
+<meta charset="UTF-8">
+<title>再生できないwebmファイルから画像を取り出すツール</title>
+<link rel="icon" href="w.ico" />
+<script src="webm_image_extractor.js"></script>
+</head>
+<body style="min-height: 100vh;">
+<div style="position: absolute; top: 0; right: 0;">
+<a href="https://github.com/mikecat/webm_image_extractor"><img decoding="async" width="149" height="149" src="https://github.blog/wp-content/uploads/2008/12/forkme_right_gray_6d6d6d.png?resize=149%2C149" class="attachment-full size-full" alt="Fork me on GitHub" loading="lazy" data-recalc-dims="1"></a>
+</div>
+<h1>再生できないwebmファイルから画像を取り出すツール</h1>
+<p>
+Google Chrome で<a href="https://github.com/antimatter15/whammy">whammy</a>が生成した<a href="https://github.com/antimatter15/whammy/issues/70">再生できないwebmファイル</a>から画像データを取り出します。<br>
+無保証です。ファイルの内容によってはうまくいかないかもしれません。
+</p>
+<form method="POST" action="https://999.999.999.999/" onsubmit="return false;">
+<p>
+<label for="zipRadio"><input type="radio" name="outputFormatSelect" id="zipRadio">
+個別の画像を格納したZIPファイルで出力</label>
+<label for="webpRadio" style="margin-left: 1em;"><input type="radio" name="outputFormatSelect" id="webpRadio" checked>
+画像を順に再生するアニメーションWebP形式で出力</label>
+</p>
+<fieldset style="width: fit-content;">
+<legend>アニメーションWebP設定</legend>
+<div style="display: grid; grid-template-columns: auto auto;">
+<div style="margin-right: 0.5em;">繰り返し回数</div>
+<div><input type="number" value="1" min="1" max="65535" size="8" id="repeatNum">
+<label for="repeatInf" style="margin-left: 0.2em"><input type="checkbox" id="repeatInf" checked>
+無限</label>
+</div>
+<div style="margin-right: 0.5em;">最初のフレームの表示時間</div>
+<div><input type="number" value="1000" min="0" max="16777215" size="11" id="firstFrameWait"> ms</div>
+<div style="margin-right: 0.5em;">中間のフレームの表示時間</div>
+<div><input type="number" value="100" min="0" max="16777215" size="11" id="otherFrameWait"> ms</div>
+<div style="margin-right: 0.5em;">最後のフレームの表示時間</div>
+<div><input type="number" value="1000" min="0" max="16777215" size="11" id="lastFrameWait"> ms</div>
+</fieldset>
+<p>
+<button type="button" id="selectFileButton">webmファイルを選択</button>
+もしくはこのページに処理対象のwebmファイルをドロップして変換
+</p>
+<div id="resultArea" style="display: none;">
+<p>
+<a href="#" id="downloadLink">結果をダウンロード</a>
+</p>
+<ul id="warningsArea">
+</ul>
+<p id="previewArea">
+</p>
+</div>
+</body>
+</html>
